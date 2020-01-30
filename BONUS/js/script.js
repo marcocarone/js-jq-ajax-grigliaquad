@@ -5,7 +5,7 @@
 
 $(document).ready(function() {
 
-crezioneQuadrati();
+crezioneQuadrati(36);
 
 
   $(document).on('click', '.quadrato', function() {
@@ -40,8 +40,8 @@ crezioneQuadrati();
 });
 
 
-function crezioneQuadrati() {
-  for (var i = 0; i < 36; i++) {
+function crezioneQuadrati(numeroQuadrati) {
+  for (var i = 0; i < numeroQuadrati; i++) {
 
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
