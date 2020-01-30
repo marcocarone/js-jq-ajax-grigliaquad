@@ -10,8 +10,7 @@ $(document).ready(function() {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
-    var contenuto = {  
-    };
+    var contenuto = {};
 
     var html = template(contenuto);
     $("#cont").append(html);
@@ -21,25 +20,30 @@ $(document).ready(function() {
   $(document).on('click', '.quadrato', function() {
     var quadratoSelezionato = $(this);
 
-    $.ajax({
-      url: "https://flynn.boolean.careers/exercises/api/random/int",
-      method: "GET",
-      success: function(data, stato) {
-        console.log(data);
-        $(quadratoSelezionato).html(data.response);
-        if (data.response <= 5) {
-          $(quadratoSelezionato).addClass("giallo");
+    if (quadratoSelezionato.hasClass("giallo") == false && quadratoSelezionato.hasClass("verde") == false) {
+      $.ajax({
+        url: "https://flynn.boolean.careers/exercises/api/random/int",
+        method: "GET",
+        success: function(data, stato) {
+          console.log(data);
+          $(quadratoSelezionato).html(data.response);
+          if (data.response <= 5) {
+            $(quadratoSelezionato).addClass("giallo");
 
 
-        } else if (data.response > 5) {
-          $(quadratoSelezionato).addClass("verde");
+          } else if (data.response > 5) {
+            $(quadratoSelezionato).addClass("verde");
+          }
+
+
+        },
+        error: function(richiesta, stato, errore) {
+          alert("E' avvenuto un errore. " + errore);
         }
-      },
-      error: function(richiesta, stato, errore) {
-        alert("E' avvenuto un errore. " + errore);
-      }
-    });
-
+      });
+    } else {
+      alert("hai già cliccato su questo quadrato, scegline uno vuoto");
+    }
 
   });
 });
