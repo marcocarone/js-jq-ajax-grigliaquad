@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-width: 600px;
+  background-color: lightskyblue;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 600px;
+}
+
+.quadrato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  color: white;
+  font-size: 23px;
+  text-shadow: 1px 1px 2px black;
+}
+
+.giallo {
+  background-color: yellow;
+}
+
+.verde {
+  background-color: green;
+}
