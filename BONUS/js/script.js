@@ -5,16 +5,7 @@
 
 $(document).ready(function() {
 
-  for (var i = 0; i < 36; i++) {
-
-    var source = $("#entry-template").html();
-    var template = Handlebars.compile(source);
-
-    var contenuto = {};
-
-    var html = template(contenuto);
-    $("#cont").append(html);
-  }
+crezioneQuadrati();
 
 
   $(document).on('click', '.quadrato', function() {
@@ -47,3 +38,17 @@ $(document).ready(function() {
 
   });
 });
+
+
+function crezioneQuadrati() {
+  for (var i = 0; i < 36; i++) {
+
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+    var contenuto = {};
+
+    var html = template(contenuto);
+    $("#cont").append(html);
+  }
+}
